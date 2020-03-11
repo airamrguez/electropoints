@@ -8,7 +8,14 @@
 
 import Foundation
 import UIKit
+import MapKit
 
 class FormViewController: UIViewController {
+    var coordinate: CLLocationCoordinate2D?
+    var placemark: CLPlacemark?
     
+    override func viewDidLoad() {
+        NSLog("coordinate -> %@", coordinate.debugDescription)
+        NSLog("placemark -> %@", placemark ?? "nada")
+    }
 }
