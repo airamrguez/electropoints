@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Mapa-->
+        <!--Map View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MapViewController" customModule="ElectroPoints" customModuleProvider="target" sceneMemberID="viewController">
@@ -16,7 +16,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="0UA-2p-EBk">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
                             </mapView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -28,7 +28,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Mapa" image="MapIcon" id="8j9-j2-zyG"/>
+                    <navigationItem key="navigationItem" id="s8e-EY-6xO"/>
                     <connections>
                         <outlet property="mapView" destination="0UA-2p-EBk" id="VGM-x7-pGm"/>
                         <segue destination="NwT-U6-Iep" kind="show" identifier="addPoint" destinationCreationSelector="addPoint:" id="yUe-Cf-tzS"/>
@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="126.5625"/>
+            <point key="canvasLocation" x="1854" y="127"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="7Ti-kG-kda">
@@ -49,7 +49,7 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="a7U-Fo-PZs"/>
+                        <segue destination="FqI-wK-1k2" kind="relationship" relationship="viewControllers" id="lEW-HP-sMx"/>
                         <segue destination="Il3-vM-yCK" kind="relationship" relationship="viewControllers" id="ax6-OM-koU"/>
                     </connections>
                 </tabBarController>
@@ -71,14 +71,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWU-aV-O25" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1067" y="848"/>
+            <point key="canvasLocation" x="996" y="855"/>
         </scene>
         <!--Form View Controller-->
         <scene sceneID="2j1-w8-daa">
             <objects>
                 <viewController id="NwT-U6-Iep" customClass="FormViewController" customModule="ElectroPoints" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ej4-ds-mAN">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="g2W-rP-d5x"/>
@@ -87,7 +87,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9ef-VP-MOi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="127"/>
+            <point key="canvasLocation" x="2752" y="127"/>
+        </scene>
+        <!--Mapa-->
+        <scene sceneID="ccC-0P-cTW">
+            <objects>
+                <navigationController id="FqI-wK-1k2" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Mapa" image="MapIcon" id="9L5-S6-Q2C"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CRw-WY-fpa">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="e7v-av-98c"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mPL-tR-nFZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="996" y="127"/>
         </scene>
     </scenes>
     <resources>
