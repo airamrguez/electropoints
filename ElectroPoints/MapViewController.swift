@@ -13,9 +13,10 @@ import CoreLocation
 let DELTA: CLLocationDistance = 1700.0;
 
 class MapViewController: UIViewController, ChargingPointDelegate {
-    func onChargingDelegate(_ chargingPoint: ChargingPoint) {
-        print("I'm the carging delegate", chargingPoint)
-        self.navigationController?.popViewController(animated: true)
+    func onChargingPointReady(_ point: ChargingPoint) {
+        print("I'm the carging delegate", point)
+        mapView.addAnnotation(point)
+        PointsService.shared.allPoints.append(point)
     }
     
 
@@ -49,14 +50,6 @@ class MapViewController: UIViewController, ChargingPointDelegate {
                     if let placemark = placemarks?[0] {
                         self.performSegue(withIdentifier: "addPoint",
                                           sender: (mapPoint, placemark))
-                        let annotation = ChargingPoint(coordinate: mapPoint,
-                                                       name: placemark.thoroughfare!,
-                                                       street: placemark.locality!,
-                                                       power: 2.3,
-                                                       price: 23.0,
-                                                       type: .schuko)
-
-                        self.mapView.addAnnotation(annotation)
                     }
                 }
             }

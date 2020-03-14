@@ -49,7 +49,9 @@ class FormViewController: UIViewController {
                       power: power,
                       price: price,
                       type: connectorType)
-        chargingPointDelegate?.onChargingDelegate(chargingPoint)
+        chargingPointDelegate?.onChargingPointReady(chargingPoint)
+
+        navigationController?.popViewController(animated: true)
     }
     
     func showError(_ message: String) {

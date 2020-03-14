@@ -57,5 +57,5 @@ enum ConnectorType: Int, CaseIterable, CustomStringConvertible {
 }
 
 protocol ChargingPointDelegate {
-    func onChargingDelegate(_ chargingPoint: ChargingPoint)
+    func onChargingPointReady(_ chargingPoint: ChargingPoint)
 }
