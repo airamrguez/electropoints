@@ -7,9 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A11D6E77241D4EB3007A8E5D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D6E76241D4EB3007A8E5D /* ListViewController.swift */; };
 		A17BB36A241973FB00A271FE /* ChargingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BB369241973FB00A271FE /* ChargingPoint.swift */; };
 		A17BB36C241978C000A271FE /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BB36B241978C000A271FE /* FormViewController.swift */; };
 		A1A93D42241D034C0083FF90 /* ChargingPointsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A93D41241D034C0083FF90 /* ChargingPointsService.swift */; };
+		A1A93D44241D07D20083FF90 /* ChargingPointListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A93D43241D07D20083FF90 /* ChargingPointListItem.swift */; };
 		A1D07F6724181B70008ED1AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07F6624181B70008ED1AE /* AppDelegate.swift */; };
 		A1D07F6924181B70008ED1AE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07F6824181B70008ED1AE /* SceneDelegate.swift */; };
 		A1D07F6B24181B70008ED1AE /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1D07F6A24181B70008ED1AE /* MapViewController.swift */; };
@@ -19,9 +21,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A11D6E76241D4EB3007A8E5D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		A17BB369241973FB00A271FE /* ChargingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPoint.swift; sourceTree = "<group>"; };
 		A17BB36B241978C000A271FE /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		A1A93D41241D034C0083FF90 /* ChargingPointsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPointsService.swift; sourceTree = "<group>"; };
+		A1A93D43241D07D20083FF90 /* ChargingPointListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPointListItem.swift; sourceTree = "<group>"; };
 		A1D07F6324181B70008ED1AE /* ElectroPoints.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectroPoints.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1D07F6624181B70008ED1AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A1D07F6824181B70008ED1AE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,14 +66,16 @@
 		A1D07F6524181B70008ED1AE /* ElectroPoints */ = {
 			isa = PBXGroup;
 			children = (
-				A1D07F7424181B74008ED1AE /* Info.plist */,
+				A1D07F6F24181B74008ED1AE /* Assets.xcassets */,
 				A17BB369241973FB00A271FE /* ChargingPoint.swift */,
+				A1A93D43241D07D20083FF90 /* ChargingPointListItem.swift */,
 				A1A93D41241D034C0083FF90 /* ChargingPointsService.swift */,
 				A17BB36B241978C000A271FE /* FormViewController.swift */,
+				A1D07F7424181B74008ED1AE /* Info.plist */,
+				A11D6E76241D4EB3007A8E5D /* ListViewController.swift */,
+				A1D07F6C24181B70008ED1AE /* Main.storyboard */,
 				A1D07F6A24181B70008ED1AE /* MapViewController.swift */,
 				A1D07F6824181B70008ED1AE /* SceneDelegate.swift */,
-				A1D07F6F24181B74008ED1AE /* Assets.xcassets */,
-				A1D07F6C24181B70008ED1AE /* Main.storyboard */,
 				A1D07F7A24181BA0008ED1AE /* SupportingFiles */,
 			);
 			path = ElectroPoints;
@@ -160,6 +166,8 @@
 				A1D07F6924181B70008ED1AE /* SceneDelegate.swift in Sources */,
 				A1A93D42241D034C0083FF90 /* ChargingPointsService.swift in Sources */,
 				A17BB36C241978C000A271FE /* FormViewController.swift in Sources */,
+				A1A93D44241D07D20083FF90 /* ChargingPointListItem.swift in Sources */,
+				A11D6E77241D4EB3007A8E5D /* ListViewController.swift in Sources */,
 				A17BB36A241973FB00A271FE /* ChargingPoint.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
