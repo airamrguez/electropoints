@@ -9,12 +9,6 @@
 import Foundation
 import MapKit
 
-enum ConnectorType: Int {
-    typealias RawValue = Int
-    
-    case schuko = 1, mennekes, chademo
-}
-
 class ChargingPoint: NSObject, MKAnnotation {
     var coordinate: CLLocationCoordinate2D
     var name: String
@@ -44,4 +38,24 @@ class ChargingPoint: NSObject, MKAnnotation {
         self.type = type
         super.init()
     }
+}
+
+enum ConnectorType: Int, CaseIterable, CustomStringConvertible {
+    typealias RawValue = Int
+    
+    case schuko = 1, mennekes, chademo
+    var description: String {
+        switch self {
+        case .schuko:
+            return "Schuko"
+        case .mennekes:
+            return "Mennekes"
+        case .chademo:
+            return "Chademo"
+        }
+    }
+}
+
+protocol ChargingPointDelegate {
+    func onChargingDelegate(_ chargingPoint: ChargingPoint)
 }

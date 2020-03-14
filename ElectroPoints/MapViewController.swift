@@ -12,7 +12,12 @@ import CoreLocation
 
 let DELTA: CLLocationDistance = 1700.0;
 
-class MapViewController: UIViewController {
+class MapViewController: UIViewController, ChargingPointDelegate {
+    func onChargingDelegate(_ chargingPoint: ChargingPoint) {
+        print("I'm the carging delegate", chargingPoint)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 
     @IBOutlet weak var mapView: MKMapView!
 
@@ -67,6 +72,8 @@ class MapViewController: UIViewController {
             let params = sender as! (CLLocationCoordinate2D, CLPlacemark)
             formController.coordinate = params.0
             formController.placemark = params.1
+            
+            formController.chargingPointDelegate = self
         }
     }
 }
