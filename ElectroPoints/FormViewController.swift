@@ -43,7 +43,8 @@ class FormViewController: UIViewController {
         let row = connectorPickerView.selectedRow(inComponent: 0)
         let connectorType = ConnectorType.allCases[row]
         
-        let chargingPoint = ChargingPoint(coordinate: coordinate!,
+        let coordinates = Coordinate(latitude: coordinate!.latitude, longitude: coordinate!.longitude)
+        let chargingPoint = ChargingPoint(coordinates: coordinates,
                       name: placemark?.thoroughfare ?? "",
                       street: placemark?.locality ?? "",
                       power: power,
