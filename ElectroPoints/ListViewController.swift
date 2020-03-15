@@ -9,11 +9,14 @@
 import Foundation
 import UIKit
 
-class ListViewController: UIViewController, UITableViewDataSource {
-    
+class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-    
+}
+
+extension ListViewController: UITableViewDataSource {
     override func viewDidLoad() {
+        super.viewDidLoad()
+
         tableView.dataSource = self
     }
     
@@ -23,10 +26,10 @@ class ListViewController: UIViewController, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let point = PointsService.shared.allPoints[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "chargingPoint", for: indexPath) as! ChargingPointListItem
+        let cell = tableView.dequeueReusableCell(withIdentifier: "pointCell") as! ChargingPointCell
 
-        cell.throughfare.text = point.title
-        cell.locality.text = point.subtitle
+        cell.throughfare.text = point.name
+        cell.locality.text = point.street
         cell.power.text = String(point.power)
         cell.price.text = String(point.price)
 
