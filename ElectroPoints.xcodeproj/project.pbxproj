@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A11D6E77241D4EB3007A8E5D /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D6E76241D4EB3007A8E5D /* ListViewController.swift */; };
+		A11D6E79241EA49F007A8E5D /* ErrorAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = A11D6E78241EA49F007A8E5D /* ErrorAlert.swift */; };
 		A17BB36A241973FB00A271FE /* ChargingPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BB369241973FB00A271FE /* ChargingPoint.swift */; };
 		A17BB36C241978C000A271FE /* FormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A17BB36B241978C000A271FE /* FormViewController.swift */; };
 		A1A93D42241D034C0083FF90 /* ChargingPointsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1A93D41241D034C0083FF90 /* ChargingPointsService.swift */; };
@@ -22,6 +23,7 @@
 
 /* Begin PBXFileReference section */
 		A11D6E76241D4EB3007A8E5D /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		A11D6E78241EA49F007A8E5D /* ErrorAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorAlert.swift; sourceTree = "<group>"; };
 		A17BB369241973FB00A271FE /* ChargingPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPoint.swift; sourceTree = "<group>"; };
 		A17BB36B241978C000A271FE /* FormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormViewController.swift; sourceTree = "<group>"; };
 		A1A93D41241D034C0083FF90 /* ChargingPointsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChargingPointsService.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 				A1D07F6A24181B70008ED1AE /* MapViewController.swift */,
 				A1D07F6824181B70008ED1AE /* SceneDelegate.swift */,
 				A1D07F7A24181BA0008ED1AE /* SupportingFiles */,
+				A11D6E78241EA49F007A8E5D /* ErrorAlert.swift */,
 			);
 			path = ElectroPoints;
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				A1D07F6724181B70008ED1AE /* AppDelegate.swift in Sources */,
 				A1D07F6924181B70008ED1AE /* SceneDelegate.swift in Sources */,
 				A1A93D42241D034C0083FF90 /* ChargingPointsService.swift in Sources */,
+				A11D6E79241EA49F007A8E5D /* ErrorAlert.swift in Sources */,
 				A17BB36C241978C000A271FE /* FormViewController.swift in Sources */,
 				A1A93D44241D07D20083FF90 /* ChargingPointCell.swift in Sources */,
 				A11D6E77241D4EB3007A8E5D /* ListViewController.swift in Sources */,

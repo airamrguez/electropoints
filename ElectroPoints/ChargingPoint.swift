@@ -41,6 +41,11 @@ class ChargingPoint: NSObject, MKAnnotation, Codable {
         self.type = type
         super.init()
     }
+    
+    func getDistance(from other:CLLocation) -> CLLocationDistance {
+        let location = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        return location.distance(from: other)
+    }
 }
 
 enum ConnectorType: Int, CaseIterable, CustomStringConvertible, Codable {

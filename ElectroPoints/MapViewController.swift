@@ -14,7 +14,6 @@ let DELTA: CLLocationDistance = 1700.0;
 
 class MapViewController: UIViewController, ChargingPointDelegate {
     func onChargingPointReady(_ point: ChargingPoint) {
-        print("I'm the carging delegate", point)
         mapView.addAnnotation(point)
         PointsService.shared.allPoints.append(point)
     }
@@ -26,14 +25,14 @@ class MapViewController: UIViewController, ChargingPointDelegate {
         super.viewDidLoad()
         
         let alcoy = CLLocationCoordinate2D(latitude: 38.70545, longitude: -0.47432)
-        
         let region = MKCoordinateRegion(center: alcoy, latitudinalMeters: DELTA, longitudinalMeters: DELTA)
-        
         mapView.setRegion(region, animated: true)
         
         let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(onMapLongPress))
-        
         mapView.addGestureRecognizer(gestureRecognizer)
+        
+        // Load previous points
+        mapView.addAnnotations(PointsService.shared.allPoints)
     }
 
     // MARK: - UILongPressGestureRecognizer Action -
@@ -44,8 +43,8 @@ class MapViewController: UIViewController, ChargingPointDelegate {
 
             let location = CLLocation(latitude: mapPoint.latitude, longitude: mapPoint.longitude)
             CLGeocoder().reverseGeocodeLocation(location) { [unowned self] (placemarks, error) in
-                if let err = error {
-                    print(err)
+                if error != nil {
+                    ErrorAlert.showError("No se ha podido obtener información de la localización", controller: self)
                 } else {
                     if let placemark = placemarks?[0] {
                         self.performSegue(withIdentifier: "addPoint",

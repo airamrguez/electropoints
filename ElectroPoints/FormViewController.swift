@@ -31,12 +31,12 @@ class FormViewController: UIViewController {
     
     @IBAction func addButton(_ sender: UIButton) {
         guard let price = Double(priceTextField.text!) else {
-            showError("El precio introducido no es válido")
+            ErrorAlert.showError("El precio introducido no es válido", controller: self)
             return
         }
         
         guard let power = Double(powerTextField.text!) else {
-            showError("La potencia introducida no es válida")
+            ErrorAlert.showError("La potencia introducida no es válida", controller: self)
             return
         }
 
@@ -53,14 +53,6 @@ class FormViewController: UIViewController {
         chargingPointDelegate?.onChargingPointReady(chargingPoint)
 
         navigationController?.popViewController(animated: true)
-    }
-    
-    func showError(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        let defaultAction = UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil)
-        alert.addAction(defaultAction)
-        
-        present(alert, animated: true, completion: nil)
     }
 }
 

@@ -8,22 +8,31 @@
 
 import Foundation
 import UIKit
+import CoreLocation
 
 class ListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
-}
-
-extension ListViewController: UITableViewDataSource {
+    
+    var locationManager = CLLocationManager()
+    var userLocation: CLLocation?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.dataSource = self
+        locationManager.delegate = self
+        
+        self.locationManager.requestWhenInUseAuthorization()
+        if (CLLocationManager.authorizationStatus() == .authorizedWhenInUse) {
+            locationManager.requestLocation()
+        }
     }
-    
+}
+
+extension ListViewController: UITableViewDataSource {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        print("view will appear")
+
         tableView.reloadData()
     }
     
@@ -40,11 +49,38 @@ extension ListViewController: UITableViewDataSource {
             return cell
         }()
         
+        let distance = userLocation != nil ? String.init(format: "%.2f kM", point.getDistance(from: userLocation!)) : ""
+
+        cell.distance.text = distance
         cell.throughfare.text = point.name
         cell.locality.text = point.street
         cell.power.text = String(point.power)
         cell.price.text = String(point.price)
 
         return cell
+    }
+}
+
+extension ListViewController: CLLocationManagerDelegate {    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        let alert = UIAlertController(title: "Error", message: "Ha ocurrido un error al obtener su posición", preferredStyle: .alert)
+        let actionOK = UIAlertAction(title: "Permitir", style: .default)
+        let actionCancel = UIAlertAction(title: "Cancelar", style: .cancel, handler: nil)
+        
+        alert.addAction(actionOK)
+        alert.addAction(actionCancel)
+        
+        present(alert, animated: true, completion: nil)
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
+        if status == .authorizedWhenInUse {
+            self.locationManager.requestLocation()
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        userLocation = locations[0]
+        tableView.reloadData()
     }
 }
