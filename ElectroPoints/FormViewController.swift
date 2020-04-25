@@ -30,12 +30,12 @@ class FormViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        guard let price = Double(priceTextField.text!) else {
+        guard let price = Double(priceTextField.text!), price > 0 else {
             ErrorAlert.showError("El precio introducido no es válido", controller: self)
             return
         }
         
-        guard let power = Double(powerTextField.text!) else {
+        guard let power = Double(powerTextField.text!), power > 0 else {
             ErrorAlert.showError("La potencia introducida no es válida", controller: self)
             return
         }
