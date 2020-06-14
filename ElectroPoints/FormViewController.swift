@@ -30,20 +30,21 @@ class FormViewController: UIViewController {
     }
     
     @IBAction func addButton(_ sender: UIButton) {
-        guard let price = Double(priceTextField.text!) else {
-            showError("El precio introducido no es válido")
+        guard let price = Double(priceTextField.text!), price > 0 else {
+            ErrorAlert.showError("El precio introducido no es válido", controller: self)
             return
         }
         
-        guard let power = Double(powerTextField.text!) else {
-            showError("La potencia introducida no es válida")
+        guard let power = Double(powerTextField.text!), power > 0 else {
+            ErrorAlert.showError("La potencia introducida no es válida", controller: self)
             return
         }
 
         let row = connectorPickerView.selectedRow(inComponent: 0)
         let connectorType = ConnectorType.allCases[row]
         
-        let chargingPoint = ChargingPoint(coordinate: coordinate!,
+        let coordinates = Coordinate(latitude: coordinate!.latitude, longitude: coordinate!.longitude)
+        let chargingPoint = ChargingPoint(coordinates: coordinates,
                       name: placemark?.thoroughfare ?? "",
                       street: placemark?.locality ?? "",
                       power: power,
@@ -52,14 +53,6 @@ class FormViewController: UIViewController {
         chargingPointDelegate?.onChargingPointReady(chargingPoint)
 
         navigationController?.popViewController(animated: true)
-    }
-    
-    func showError(_ message: String) {
-        let alert = UIAlertController(title: "Error", message: message, preferredStyle: UIAlertController.Style.alert)
-        let defaultAction = UIAlertAction(title: "Aceptar", style: UIAlertAction.Style.default, handler: nil)
-        alert.addAction(defaultAction)
-        
-        present(alert, animated: true, completion: nil)
     }
 }
 

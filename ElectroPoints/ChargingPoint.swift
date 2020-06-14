@@ -9,8 +9,11 @@
 import Foundation
 import MapKit
 
-class ChargingPoint: NSObject, MKAnnotation {
-    var coordinate: CLLocationCoordinate2D
+class ChargingPoint: NSObject, MKAnnotation, Codable {
+    var coordinates: Coordinate
+    var coordinate: CLLocationCoordinate2D {
+        return CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude)
+    }
     var name: String
     var street: String
     var power: Double
@@ -29,8 +32,8 @@ class ChargingPoint: NSObject, MKAnnotation {
         }
     }
     
-    internal init(coordinate: CLLocationCoordinate2D, name: String, street: String, power: Double, price: Double, type: ConnectorType) {
-        self.coordinate = coordinate
+    internal init(coordinates: Coordinate, name: String, street: String, power: Double, price: Double, type: ConnectorType) {
+        self.coordinates = coordinates
         self.name = name
         self.street = street
         self.power = power
@@ -38,9 +41,14 @@ class ChargingPoint: NSObject, MKAnnotation {
         self.type = type
         super.init()
     }
+    
+    func getDistance(from other:CLLocation) -> CLLocationDistance {
+        let location = CLLocation(latitude: coordinates.latitude, longitude: coordinates.longitude)
+        return location.distance(from: other)
+    }
 }
 
-enum ConnectorType: Int, CaseIterable, CustomStringConvertible {
+enum ConnectorType: Int, CaseIterable, CustomStringConvertible, Codable {
     typealias RawValue = Int
     
     case schuko = 1, mennekes, chademo
@@ -58,4 +66,9 @@ enum ConnectorType: Int, CaseIterable, CustomStringConvertible {
 
 protocol ChargingPointDelegate {
     func onChargingPointReady(_ chargingPoint: ChargingPoint)
+}
+
+struct Coordinate: Codable, Hashable {
+    let latitude: Double
+    let longitude: Double
 }
