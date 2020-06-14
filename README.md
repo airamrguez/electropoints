@@ -684,4 +684,3 @@ Si quieres probar diferentes localizaciones en el simulador, podemos utilizar un
 localizaciones específicas o utilizar una propia si introducimos las coordenadas:
 
 
-
